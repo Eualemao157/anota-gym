@@ -78,8 +78,8 @@ app.get('/stats', (req, res) => {
   db.all(`SELECT w.date, MAX(i.weight) as weight FROM items i JOIN workouts w ON i.workout_id = w.id WHERE i.weight > 0 GROUP BY w.date ORDER BY w.date ASC`, [], (err, rows) => res.json(rows));
 });
 
-// --- ROTA FINAL: Qualquer coisa que não seja API, manda para o site
-app.get('*', (req, res) => {
+// --- ROTA FINAL: Corrigida para funcionar no Render
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
