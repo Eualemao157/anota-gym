@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// O site vai procurar o servidor na porta 3001
+// baseURL vazia significa: "Use o mesmo endereço do site"
 export const api = axios.create({
-  baseURL: 'http://localhost:3001'
+  baseURL: ''
 });
